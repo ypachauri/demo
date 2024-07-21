@@ -7,3 +7,14 @@ services:
       - 'POSTGRES_USER=user'
     ports:
       - '5435:5432'
+  jenkins:
+    image: 'jenkins/jenkins:lts'
+    ports:
+      - "9090:9090"
+    environment:
+      - 'JENKINS_OPTS=--httpPort=9090'
+    volumes:
+      - 'jenkins_home:/var/jenkins_home'
+
+volumes:
+  jenkins_home:
