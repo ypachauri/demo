@@ -16,10 +16,10 @@ import java.util.Date;
 @Component
 public class JwtUtils {
 
-    @Value("${security.jwt.token.secret-key:secret}")
+    @Value("${bezkoder.app.jwtSecret}")
     private String secretKey;
 
-    @Value("${security.jwt.token.expire-length:3600000}")
+    @Value("${bezkoder.app.jwtExpirationMs}")
     private long validityInMilliseconds; // 1h
 
     public String generateJwtToken(Authentication authentication) {
